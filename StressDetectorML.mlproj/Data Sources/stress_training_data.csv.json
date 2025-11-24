@@ -1,0 +1,41 @@
+{
+  "activityEntities" : [
+    "dataSourceTrainingStarted",
+    [
+      {
+        "createdDate" : "2025-11-24T03:02:25Z",
+        "event" : "dataSourceTrainingStarted",
+        "id" : "6034590A-2DDC-4F17-BB88-15DA7367996E",
+        "subtitle" : "StressDetectorML 1",
+        "title" : "Used By"
+      }
+    ],
+    "dataSourceMetrics",
+    [
+      {
+        "createdDate" : "2025-11-24T03:02:25Z",
+        "event" : "dataSourceMetrics",
+        "id" : "AD4C8A6D-D46A-4E61-9177-307ED9655E05",
+        "subtitle" : "18 Items",
+        "title" : "Data Summary"
+      }
+    ]
+  ],
+  "createdDate" : "2025-11-24T03:00:15Z",
+  "dataPathRelativeToProjectURL" : "../StressNudger/Resources/stress_training_data.csv/",
+  "dataResult" : {
+    "createdDate" : "2025-11-24T03:00:15Z",
+    "dataSourceID" : "99BED06D-88C5-4E1E-A742-C3B152558000",
+    "dataURL" : "file:///Users/bidisha/Documents/Repos/StressNudger/StressNudger/Resources/stress_training_data.csv"
+  },
+  "dataURL" : "file:///Users/bidisha/Documents/Repos/StressNudger/StressNudger/Resources/stress_training_data.csv",
+  "experimentIDs" : [
+    "72826E8B-7777-484E-AF18-5AADB6E21036"
+  ],
+  "id" : "99BED06D-88C5-4E1E-A742-C3B152558000",
+  "modifiedDate" : "2025-11-24T03:02:25Z",
+  "pathType" : 0,
+  "preferredFilename" : "stress_training_data.csv",
+  "title" : "stress_training_data.csv",
+  "version" : "1.0"
+}

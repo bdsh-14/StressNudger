@@ -1,0 +1,29 @@
+{
+  "activityEntities" : [
+    "projectCreated",
+    [
+      {
+        "createdDate" : "2025-11-24T02:59:59Z",
+        "event" : "projectCreated",
+        "id" : "16B7854B-351A-40EA-988E-8C4E763F5454",
+        "subtitle" : "StressDetectorML",
+        "title" : "Project Created"
+      }
+    ]
+  ],
+  "authorName" : "Bidisha Biswas",
+  "createdDate" : "2025-11-24T02:59:59Z",
+  "description" : "",
+  "id" : "194A5355-2F3E-4D3E-9F0B-80FD8C825DF3",
+  "license" : "",
+  "location" : "",
+  "modifiedDate" : "2025-11-24T02:59:59Z",
+  "projectName" : "StressDetectorML",
+  "settingsEntity" : {
+    "snapshotOnExtendTraining" : true,
+    "snapshotOnResumeTraining" : false
+  },
+  "taskType" : "generalRegresor",
+  "title" : "Tabular Regression",
+  "version" : "1.1"
+}

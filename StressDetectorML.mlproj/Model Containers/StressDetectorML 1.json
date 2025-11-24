@@ -1,0 +1,352 @@
+{
+  "activityEntities" : [
+    "trainingFinished",
+    [
+      {
+        "createdDate" : "2025-11-24T03:02:26Z",
+        "event" : "trainingFinished",
+        "id" : "12F0A5CD-DA94-4DB2-ABC3-1A76EAD1AD21",
+        "subtitle" : "10 iterations",
+        "title" : "Training Completed"
+      }
+    ],
+    "trainingDataAdded",
+    [
+      {
+        "createdDate" : "2025-11-24T03:00:21Z",
+        "event" : "trainingDataAdded",
+        "id" : "6225504B-3AD2-4583-91F5-D1BAFFFA7A46",
+        "subtitle" : "stress_training_data.csv",
+        "title" : "Training Data Added"
+      }
+    ],
+    "experimentCreated",
+    [
+      {
+        "createdDate" : "2025-11-24T02:59:59Z",
+        "event" : "experimentCreated",
+        "id" : "6F52813C-4094-4F7F-96CE-17548515BFBC",
+        "subtitle" : "StressDetectorML 1",
+        "title" : "Model Source Created"
+      }
+    ],
+    "trainingStarted",
+    [
+      {
+        "createdDate" : "2025-11-24T03:02:25Z",
+        "event" : "trainingStarted",
+        "id" : "7F18EC2C-39AA-4093-A07E-7D12CCA4A9DE",
+        "subtitle" : "10 iterations",
+        "title" : "Training Started"
+      }
+    ]
+  ],
+  "contentDataResult" : {
+    "createdDate" : "2025-11-24T03:00:15Z"
+  },
+  "createdDate" : "2025-11-24T02:59:59Z",
+  "evaluationContainerEntity" : {
+    "createdDate" : "2025-11-24T03:02:26Z",
+    "evaluationEntities" : [
+      {
+        "analysedDataType" : "none",
+        "createdDate" : "2025-11-24T03:02:26Z",
+        "dataResult" : {
+
+        },
+        "id" : "1e68ffd7-5c67-4e58-8515-ef915548aeb3"
+      }
+    ],
+    "id" : "c4e61eba-b7a8-487e-9072-2e02e902ff29",
+    "modifiedDate" : "2025-11-24T03:02:26Z",
+    "previewType" : "tabularRegressor",
+    "testingEvaluationEntity" : {
+      "analysedDataType" : "none",
+      "createdDate" : "2025-11-24T02:59:59Z",
+      "dataResult" : {
+        "createdDate" : "2025-11-24T03:00:15Z"
+      },
+      "id" : "5e16b234-06bc-4598-aff5-e22f4c2e7685"
+    },
+    "trainingEvaluationEntity" : {
+      "analysedDataType" : "none",
+      "createdDate" : "2025-11-24T02:59:59Z",
+      "dataResult" : {
+        "createdDate" : "2025-11-24T03:00:15Z",
+        "dataAnalysis" : {
+          "classifierAnalysis" : {
+
+          },
+          "issues" : [
+            {
+              "description" : "Data has 18 rows",
+              "severity" : "info"
+            }
+          ],
+          "objectDetectorAnalysis" : {
+            "details" : {
+
+            }
+          },
+          "regressorAnalysis" : {
+            "targetRange" : [
+              0.15,
+              0.92
+            ]
+          },
+          "summary" : {
+            "canUseValidation" : 0,
+            "sampleCount" : 18
+          }
+        },
+        "dataSourceID" : "99BED06D-88C5-4E1E-A742-C3B152558000",
+        "dataURL" : "file:///Users/bidisha/Documents/Repos/StressNudger/StressNudger/Resources/stress_training_data.csv",
+        "itemsCount" : 18,
+        "targetRange" : [
+          0.15,
+          0.92
+        ]
+      },
+      "dataSourceID" : "99BED06D-88C5-4E1E-A742-C3B152558000",
+      "evaluationResult" : {
+        "generalRegressor" : {
+          "maximumError" : 0.05000833988189701,
+          "rootMeanSquaredError" : 0.021398725303479717
+        }
+      },
+      "id" : "0281a861-2550-4f7d-97e0-8a03b8bf7257"
+    },
+    "validationEvaluationEntity" : {
+      "analysedDataType" : "auto",
+      "createdDate" : "2025-11-24T02:59:59Z",
+      "dataResult" : {
+        "createdDate" : "2025-11-24T03:00:15Z"
+      },
+      "id" : "0981ae0f-34de-4e07-9135-b22220526ddf"
+    }
+  },
+  "evaluationEntity" : {
+    "analysedDataType" : "none",
+    "dataResult" : {
+
+    },
+    "id" : "152a9b4d-4b18-417b-9ac8-a6465409d064"
+  },
+  "evaluationState" : "uninitialized",
+  "id" : "72826E8B-7777-484E-AF18-5AADB6E21036",
+  "modelEntity" : {
+    "createdDate" : "2025-11-24T02:59:59Z",
+    "experimentID" : "72826E8B-7777-484E-AF18-5AADB6E21036",
+    "id" : "A44DC8C8-AA70-4F7C-A6FF-084ABD3CEDF3",
+    "modelURL" : "Models/StressDetectorML%201.mlmodel",
+    "modifiedDate" : "2025-11-24T02:59:59Z",
+    "title" : "",
+    "version" : "1.0"
+  },
+  "modifiedDate" : "2025-11-24T03:02:26Z",
+  "preferredFilename" : "StressDetectorML 1",
+  "settingEntity" : {
+    "algorithmType" : "maxEnt",
+    "augmentations" : [
+
+    ],
+    "featureNames" : [
+      "meanVelocity",
+      "velocityStdDev",
+      "maxVelocity",
+      "jerkiness",
+      "accelerationChanges",
+      "scrollReversals",
+      "microPauses",
+      "longPauses",
+      "scrollDuration",
+      "scrollFrequency",
+      "heartRate"
+    ],
+    "generalRegressorType" : {
+      "boostedTree" : {
+        "columnSubsample" : 1,
+        "maxDepth" : 6,
+        "minChildWeight" : 0.1,
+        "minLossReduction" : 0,
+        "rowSubsample" : 1,
+        "stepSize" : 0.3
+      }
+    },
+    "handActionClassifierAugmentations" : [
+
+    ],
+    "handPoseClassifierAugmentations" : [
+
+    ],
+    "harVideoAugmentations" : 0,
+    "iterationCount" : 10,
+    "seedType" : "default",
+    "styleTransferAlgorithmType" : "image",
+    "suggestedColumnTypes" : [
+      "Int",
+      "Int",
+      "Int",
+      "Int",
+      "Int",
+      "Int",
+      "Int",
+      "Int",
+      "Double",
+      "Int",
+      "Int",
+      "Double"
+    ],
+    "suggestedColumnValues" : [
+      "95, 105, 180, 190, 115, 200, 98, 185, 110, 195, 100, 175, 120, 188, 102, 178, 125, 192",
+      "28, 32, 85, 92, 35, 95, 30, 88, 33, 90, 31, 82, 38, 89, 29, 84, 40, 91",
+      "195, 210, 420, 450, 220, 480, 200, 440, 215, 460, 205, 410, 230, 445, 198, 415, 240, 455",
+      "48, 52, 155, 165, 58, 175, 50, 160, 55, 170, 51, 150, 60, 162, 49, 152, 65, 168",
+      "2, 3, 8, 9, 4, 10, 3, 9, 3, 9, 3, 8, 4, 9, 2, 8, 5, 9",
+      "1, 1, 4, 5, 2, 6, 1, 5, 2, 5, 1, 4, 2, 5, 1, 4, 3, 5",
+      "2, 3, 6, 7, 3, 8, 2, 7, 3, 7, 2, 6, 3, 7, 2, 6, 4, 7",
+      "0, 0, 1, 1, 0, 2, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1",
+      "8.20, 8.50, 8.10, 8.30, 7.80, 8.70, 8.00, 8.40, 8.20, 8.50, 8.10, 8.20, 7.90, 8.30, 8.00, 8.10, 8.00, 8.40",
+      "14, 16, 26, 28, 17, 30, 15, 27, 16, 29, 15, 25, 18, 28, 14, 26, 19, 29",
+      "65, 68, 92, 95, 70, 98, 66, 94, 69, 96, 67, 90, 72, 95, 65, 91, 75, 97",
+      "0.15, 0.22, 0.82, 0.88, 0.28, 0.92, 0.18, 0.85, 0.25, 0.90, 0.20, 0.80, 0.30, 0.87, 0.17, 0.81, 0.35, 0.89"
+    ],
+    "suggestedColumns" : [
+      "meanVelocity",
+      "velocityStdDev",
+      "maxVelocity",
+      "jerkiness",
+      "accelerationChanges",
+      "scrollReversals",
+      "microPauses",
+      "longPauses",
+      "scrollDuration",
+      "scrollFrequency",
+      "heartRate",
+      "stressLevel"
+    ],
+    "targetColumn" : "stressLevel",
+    "taskType" : "generalRegresor",
+    "transferLearningEmbeddingType" : "dynamic"
+  },
+  "snapshotRole" : {
+    "withoutSnapshots" : 0
+  },
+  "state" : "trained",
+  "title" : "StressDetectorML 1",
+  "trainingEntity" : {
+    "analysedDataType" : "datasource",
+    "checkpointMetrics" : {
+
+    },
+    "dataResult" : {
+      "columnTypes" : [
+        "Int",
+        "Int",
+        "Int",
+        "Int",
+        "Int",
+        "Int",
+        "Int",
+        "Int",
+        "Double",
+        "Int",
+        "Int",
+        "Double"
+      ],
+      "columnValues" : [
+        "95, 105, 180, 190, 115, 200, 98, 185, 110, 195, 100, 175, 120, 188, 102, 178, 125, 192",
+        "28, 32, 85, 92, 35, 95, 30, 88, 33, 90, 31, 82, 38, 89, 29, 84, 40, 91",
+        "195, 210, 420, 450, 220, 480, 200, 440, 215, 460, 205, 410, 230, 445, 198, 415, 240, 455",
+        "48, 52, 155, 165, 58, 175, 50, 160, 55, 170, 51, 150, 60, 162, 49, 152, 65, 168",
+        "2, 3, 8, 9, 4, 10, 3, 9, 3, 9, 3, 8, 4, 9, 2, 8, 5, 9",
+        "1, 1, 4, 5, 2, 6, 1, 5, 2, 5, 1, 4, 2, 5, 1, 4, 3, 5",
+        "2, 3, 6, 7, 3, 8, 2, 7, 3, 7, 2, 6, 3, 7, 2, 6, 4, 7",
+        "0, 0, 1, 1, 0, 2, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1",
+        "8.20, 8.50, 8.10, 8.30, 7.80, 8.70, 8.00, 8.40, 8.20, 8.50, 8.10, 8.20, 7.90, 8.30, 8.00, 8.10, 8.00, 8.40",
+        "14, 16, 26, 28, 17, 30, 15, 27, 16, 29, 15, 25, 18, 28, 14, 26, 19, 29",
+        "65, 68, 92, 95, 70, 98, 66, 94, 69, 96, 67, 90, 72, 95, 65, 91, 75, 97",
+        "0.15, 0.22, 0.82, 0.88, 0.28, 0.92, 0.18, 0.85, 0.25, 0.90, 0.20, 0.80, 0.30, 0.87, 0.17, 0.81, 0.35, 0.89"
+      ],
+      "columns" : [
+        "meanVelocity",
+        "velocityStdDev",
+        "maxVelocity",
+        "jerkiness",
+        "accelerationChanges",
+        "scrollReversals",
+        "microPauses",
+        "longPauses",
+        "scrollDuration",
+        "scrollFrequency",
+        "heartRate",
+        "stressLevel"
+      ],
+      "createdDate" : "2025-11-24T03:00:15Z",
+      "dataAnalysis" : {
+        "classifierAnalysis" : {
+
+        },
+        "issues" : [
+          {
+            "description" : "Data has 18 rows",
+            "severity" : "info"
+          }
+        ],
+        "objectDetectorAnalysis" : {
+          "details" : {
+
+          }
+        },
+        "regressorAnalysis" : {
+          "targetRange" : [
+            0.15,
+            0.92
+          ]
+        },
+        "summary" : {
+          "canUseValidation" : 0,
+          "sampleCount" : 18
+        }
+      },
+      "dataSourceID" : "99BED06D-88C5-4E1E-A742-C3B152558000",
+      "dataURL" : "file:///Users/bidisha/Documents/Repos/StressNudger/StressNudger/Resources/stress_training_data.csv",
+      "itemsCount" : 18,
+      "targetRange" : [
+        0.15,
+        0.92
+      ]
+    },
+    "dataSourceID" : "99BED06D-88C5-4E1E-A742-C3B152558000",
+    "featureExtractionCheckpointMayBeAvailable" : false,
+    "finishTime" : "2025-11-24T03:02:26Z",
+    "progress" : [
+
+    ],
+    "snapshottableCheckpoints" : {
+
+    },
+    "startTime" : "2025-11-24T03:02:25Z",
+    "trainingAccuracy" : 0.021398725303479717,
+    "trainingResults" : {
+      "generalRegressor" : {
+        "maximumError" : 0.05000833988189701,
+        "rootMeanSquaredError" : 0.021398725303479717
+      }
+    }
+  },
+  "validationEntity" : {
+    "analysedDataType" : "auto",
+    "dataResult" : {
+      "createdDate" : "2025-11-24T03:00:15Z"
+    },
+    "splitOptions" : {
+      "strategy" : {
+        "automatic" : {
+
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
