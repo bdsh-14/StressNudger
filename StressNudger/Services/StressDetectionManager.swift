@@ -15,35 +15,54 @@ class StressDetectionManager: ObservableObject {
 
 	private let featureExtractor = ScrollFeatureExtractor()
 	private let model = StressModel()
-	private let stressThreshold: Double = 0.7
+	private let stressThreshold: Double = 0.85
 
 	private var lastInferenceTime = Date()
-	private let inferenceInterval: TimeInterval = 2.0 // Run every 2 seconds
+	private let inferenceInterval: TimeInterval = 2.0
+	private var stressHistory: [Double] = []
+	private let historySize = 5
+	private var lastHapticTime = Date.distantPast
+
+	var currentHeartRate: Double?
 
 	func processScrollMetrics(_ metrics: ScrollMetrics) {
+		print("🔵 Processing metrics: velocity=\(metrics.velocity)")
 		featureExtractor.addMetrics(metrics)
 
-		// Run inference periodically
 		let now = Date()
 		guard now.timeIntervalSince(lastInferenceTime) >= inferenceInterval else {
 			return
 		}
 		lastInferenceTime = now
 
+		print("🟢 Running inference...")
 		detectStress()
 	}
 
 	private func detectStress() {
 		guard let features = featureExtractor.extractFeatures() else {
+			print("⚠️ No features extracted yet")
 			return
 		}
 
-		// Get stress prediction
-		let stressLevel = model.predict(features: features)
+		print("📊 Features: velocity_std=\(features.velocityStdDev), jerkiness=\(features.jerkiness), HR=\(currentHeartRate ?? 0)")
+
+		let stressLevel = model.predict(features: features, heartRate: currentHeartRate)
+
+		// Add to history and smooth
+		stressHistory.append(stressLevel)
+		if stressHistory.count > historySize {
+			stressHistory.removeFirst()
+		}
+
+		// Use moving average instead of raw prediction
+		let smoothedStress = stressHistory.reduce(0, +) / Double(stressHistory.count)
+
+		print("🎯 Raw: \(stressLevel), Smoothed: \(smoothedStress)")
 
 		DispatchQueue.main.async {
-			self.currentStressLevel = stressLevel
-			self.isStressed = stressLevel > self.stressThreshold
+			self.currentStressLevel = smoothedStress  // Use smoothed value
+			self.isStressed = smoothedStress > self.stressThreshold
 		}
 
 		if isStressed {
@@ -52,11 +71,19 @@ class StressDetectionManager: ObservableObject {
 	}
 
 	private func triggerIntervention() {
-		// Haptic feedback
+		// Only trigger haptic if 30 seconds have passed
+		let now = Date()
+		guard now.timeIntervalSince(lastHapticTime) > 30 else {
+			print("⏸️ Haptic cooldown - skipping")
+			return
+		}
+		lastHapticTime = now
+
 		let generator = UINotificationFeedbackGenerator()
 		generator.notificationOccurred(.warning)
 
-		// Post notification for UI
+		print("⚠️ STRESS DETECTED - Haptic triggered!")
+
 		NotificationCenter.default.post(
 			name: .stressDetected,
 			object: nil,

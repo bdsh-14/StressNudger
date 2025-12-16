@@ -21,6 +21,7 @@ struct StressIndicatorView: View {
 			Text("Stress Level")
 				.font(.headline)
 				.foregroundColor(.secondary)
+				.padding(8)
 
 			ZStack {
 				Circle()
@@ -38,7 +39,7 @@ struct StressIndicatorView: View {
 				.font(.system(size: 36, weight: .bold, design: .rounded))
 				.foregroundColor(color)
 		}
-		.padding()
+		.padding(.vertical, 8)
 	}
 }
 

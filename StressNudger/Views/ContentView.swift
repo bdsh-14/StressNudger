@@ -9,16 +9,34 @@ import SwiftUI
 
 struct ContentView: View {
 	@StateObject private var stressManager = StressDetectionManager()
+	@StateObject private var healthKitManager = HealthKitManager()
 	@State private var showBreathingExercise = false
 
 	var body: some View {
 		NavigationView {
-			VStack(spacing: 0) {
-				// Stress indicator at top
-				StressIndicatorView(level: stressManager.currentStressLevel)
-					.padding(.vertical)
+			VStack(spacing: 8) {
+				VStack(spacing: 8) {
+					StressIndicatorView(level: stressManager.currentStressLevel)
+
+					if healthKitManager.currentHeartRate > 0 {
+						HStack {
+							Image(systemName: "heart.fill")
+								.foregroundColor(.red)
+							Text("\(Int(healthKitManager.currentHeartRate)) bpm")
+								.font(.subheadline)
+								.foregroundColor(.secondary)
+						}
+					} else {
+						Text("No heart rate data")
+							.font(.caption)
+							.foregroundColor(.secondary)
+					}
+				}
+				.padding(.vertical, 8)
 
 				Divider()
+
+				// Scrollable content
 				List(0..<50, id: \.self) { index in
 					ScrollMetricsView(
 						content: {
@@ -33,7 +51,7 @@ struct ContentView: View {
 
 				Divider()
 
-				// Controls at bottom
+				// Controls
 				HStack(spacing: 20) {
 					Button {
 						stressManager.reset()
@@ -42,19 +60,27 @@ struct ContentView: View {
 					}
 					.buttonStyle(.bordered)
 
-					Button {
-						// TODO: Implement export
-					} label: {
-						Label("Export", systemImage: "square.and.arrow.up")
+					if !healthKitManager.isAuthorized {
+						Button {
+							healthKitManager.requestAuthorization()
+						} label: {
+							Label("Enable HealthKit", systemImage: "heart.fill")
+						}
+						.buttonStyle(.borderedProminent)
 					}
-					.buttonStyle(.bordered)
 				}
 				.padding()
 			}
-			.navigationTitle("StressNudger")
+			.navigationTitle("Stress Nudger")
 			.navigationBarTitleDisplayMode(.inline)
 			.sheet(isPresented: $showBreathingExercise) {
 				BreathingExerciseView()
+			}
+			.onAppear {
+				healthKitManager.requestAuthorization()
+			}
+			.onReceive(healthKitManager.$currentHeartRate) { heartRate in
+				stressManager.currentHeartRate = heartRate
 			}
 			.onReceive(NotificationCenter.default.publisher(for: .stressDetected)) { _ in
 				showBreathingExercise = true
@@ -76,27 +102,6 @@ struct ArticleRow: View {
 				.lineLimit(3)
 		}
 		.padding(.vertical, 8)
-	}
-}
-
-struct SampleContentView: View {
-	var body: some View {
-		LazyVStack(alignment: .leading, spacing: 16) {
-			ForEach(0..<50, id: \.self) { index in
-				VStack(alignment: .leading, spacing: 8) {
-					Text("Article \(index + 1)")
-						.font(.headline)
-					Text("This is sample content to scroll through. The app monitors your scroll behavior to detect stress patterns in real-time using behavioral analysis.")
-						.font(.body)
-						.foregroundColor(.secondary)
-						.lineLimit(3)
-				}
-				.padding()
-				.background(Color(.systemGray6))
-				.cornerRadius(12)
-			}
-		}
-		.padding()
 	}
 }
 
